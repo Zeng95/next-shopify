@@ -2,11 +2,19 @@ import { getAllProducts } from 'framework/shopify/product/get-all-products';
 import type { InferGetStaticPropsType } from 'next';
 
 function Home({ products }: InferGetStaticPropsType<typeof getStaticProps>) {
-  return <div className="products">{products}</div>;
+  return (
+    <ul className="products">
+      {products.map((product) => (
+        <li key={product.id}>
+          <h1>{product.title}</h1>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
-export const getStaticProps = () => {
-  const products = getAllProducts();
+export const getStaticProps = async () => {
+  const products = await getAllProducts();
 
   return {
     props: {

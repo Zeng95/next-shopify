@@ -1,4 +1,4 @@
-import { getAllProducts } from 'framework/shopify/api/products/get-all-products';
+import { getAllProducts } from 'framework/shopify/api/products';
 import type { InferGetStaticPropsType } from 'next';
 
 function Home({ products }: InferGetStaticPropsType<typeof getStaticProps>) {

@@ -19,9 +19,7 @@ function Home({ products }: InferGetStaticPropsType<typeof getStaticProps>) {
 export async function getStaticProps() {
   const products = await getAllProducts();
   return {
-    props: {
-      products
-    },
+    props: { products },
     revalidate: 4 * 60 * 60 // In seconds
   };
 }

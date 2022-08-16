@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { http } from 'framework/shopify/utils/http';
 import { ProductConnection } from '../../schema';
 import { getAllProductsQuery } from '../../utils/queries/get-all-products';
@@ -17,9 +18,11 @@ async function getAllProducts() {
     });
     const { edges } = data.products;
     const products = edges.map(({ node: product }) => product);
-
     return products;
   } catch (err) {
+    if (axios.isAxiosError(err)) {
+      throw err.response?.data;
+    }
     throw err;
   }
 }

@@ -1,6 +1,7 @@
+import { ScriptProps } from 'next/script';
 import React from 'react';
 
-function Layout({ children }: { children: React.ReactNode }) {
+function Layout({ children }: ScriptProps) {
   return <div className="layout">{children}</div>;
 }
 

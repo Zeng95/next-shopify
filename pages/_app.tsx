@@ -1,17 +1,17 @@
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { ScriptProps } from 'next/script';
-import 'styles/globals.css';
+import 'styles/main.scss';
 
 type Page<P = Record<string, never>> = NextPage<P> & {
-  Layout: React.FC<ScriptProps>;
+  Layout: (page: ScriptProps) => JSX.Element;
 };
 
 type Props = AppProps & {
   Component: Page;
 };
 
-const Noop: React.FC<ScriptProps> = ({ children }) => <>{children}</>;
+const Noop = ({ children }: ScriptProps) => <>{children}</>;
 
 function App({ Component, pageProps }: Props) {
   const Layout = Component.Layout || Noop;

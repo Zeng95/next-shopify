@@ -1,3 +1,4 @@
+import Layout from 'components/common/Layout';
 import { getAllProducts } from 'framework/shopify/api/products';
 import type { InferGetStaticPropsType } from 'next';
 
@@ -15,6 +16,8 @@ function Home({ products }: InferGetStaticPropsType<typeof getStaticProps>) {
     </>
   );
 }
+
+Home.Layout = Layout;
 
 export async function getStaticProps() {
   const products = await getAllProducts();

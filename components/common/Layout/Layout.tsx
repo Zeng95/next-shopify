@@ -1,13 +1,7 @@
-import { ScriptProps } from 'next/script';
+import React from 'react';
 
-const Layout: React.FC<ScriptProps> = ({ children }) => {
+function Layout({ children }: { children: React.ReactNode }) {
   return <div className="layout">{children}</div>;
-};
-
-export let thing = 'initial';
-
-setTimeout(() => {
-  thing = 'changed';
-}, 500);
+}
 
 export default Layout;

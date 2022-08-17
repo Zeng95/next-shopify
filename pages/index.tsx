@@ -1,6 +1,6 @@
-import Layout from 'components/common/Layout';
+import { Layout } from 'components/common';
 import { getAllProducts } from 'framework/shopify/api/products';
-import type { InferGetStaticPropsType } from 'next';
+import { InferGetStaticPropsType } from 'next';
 
 function Home({ products }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (

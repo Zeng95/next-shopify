@@ -66,4 +66,6 @@ class Http {
   }
 }
 
-export const http = new Http();
+const http = new Http();
+
+export default http;

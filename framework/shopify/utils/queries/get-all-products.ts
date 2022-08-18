@@ -34,7 +34,7 @@ const productConnection = `
   }
 `;
 
-export function getAllProductsQuery() {
+function getAllProductsQuery() {
   return `
     query getAllProducts($first: Int = 250) {
       products(first: $first) {
@@ -43,3 +43,5 @@ export function getAllProductsQuery() {
     }
   `;
 }
+
+export default getAllProductsQuery;

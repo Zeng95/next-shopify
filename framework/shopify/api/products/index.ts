@@ -1,8 +1,10 @@
 import axios from 'axios';
-import { http } from 'framework/shopify/utils/http';
-import { normalizeProduct } from 'framework/shopify/utils/normalize';
+import {
+  getAllProductsQuery,
+  http,
+  normalizeProduct
+} from 'framework/shopify/utils';
 import { ProductConnection } from '../../schema';
-import { getAllProductsQuery } from '../../utils/queries/get-all-products';
 
 type ServerResponseType = {
   products: ProductConnection;

@@ -1,7 +1,10 @@
+import { Product, ProductImage } from 'framework/common/types/product';
 import { ImageConnection, Product as ShopifyProduct } from '../schema';
 
-export function normalizeProductImages({ edges }: ImageConnection) {
-  return edges.map(({ node: image }) => {
+export function normalizeProductImages(
+  images: ImageConnection
+): ProductImage[] {
+  return images.edges.map(({ node: image }) => {
     const { originalSrc: url, ...rest } = image;
     return {
       url: `/images/${url}`,
@@ -10,7 +13,7 @@ export function normalizeProductImages({ edges }: ImageConnection) {
   });
 }
 
-export function normalizeProduct(productNode: ShopifyProduct) {
+export function normalizeProduct(productNode: ShopifyProduct): Product {
   const {
     id,
     title: name,
@@ -23,9 +26,9 @@ export function normalizeProduct(productNode: ShopifyProduct) {
 
   const product = {
     id,
-    vendor,
-    description,
     name,
+    description,
+    vendor,
     path: `/${handle}`, // http://localhost:3000/products/cool-hat
     slug: handle.replace(/^\/+|\/+$/g, ''),
     images: normalizeProductImages(imageConnection),

@@ -10,9 +10,9 @@
   }
 
   &.layoutA {
-    & > *:first-child {
+    & > *:nth-child(3n + 1) {
       @screen lg {
-        @apply row-span-full col-span-2;
+        @apply row-span-2 col-span-2;
       }
     }
   }

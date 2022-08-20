@@ -1,0 +1,29 @@
+.root {
+  @apply relative;
+
+  &:nth-child(6n + 1) > .background {
+    @apply bg-violet;
+  }
+
+  &:nth-child(6n + 3) > .background {
+    @apply bg-pink;
+  }
+}
+
+.background {
+  @apply absolute inset-0 z-0;
+  background-color: #212529;
+}
+
+.tag {
+  @apply absolute top-0 left-0;
+}
+
+.title {
+  @apply font-bold py-4 px-6;
+}
+
+.price {
+  @apply pt-2 px-6 pb-4 font-semibold text-sm;
+  letter-spacing: 0.4px;
+}

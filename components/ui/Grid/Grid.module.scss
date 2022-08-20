@@ -1,12 +1,23 @@
 .root {
-  @apply grid grid-cols-1;
-
   @screen lg {
     @apply grid-rows-2 grid-cols-3;
   }
 
+  @apply grid grid-cols-1;
+
   & > * {
-    height: 500px;
-    max-height: 800px;
+    @apply row-span-1;
+  }
+
+  &.layoutA {
+    & > *:first-child {
+      @screen lg {
+        @apply row-span-full col-span-2;
+      }
+    }
+  }
+
+  &.layoutB {
+    color: blue;
   }
 }

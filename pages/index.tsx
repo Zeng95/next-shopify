@@ -1,13 +1,13 @@
 import { Layout } from 'components/common';
 import { ProductCard } from 'components/product';
-import { Grid, Hero } from 'components/ui';
+import { Grid, Hero, Marquee } from 'components/ui';
 import { getAllProducts } from 'framework/shopify/api/products';
 import { InferGetStaticPropsType } from 'next';
 
 export async function getStaticProps() {
   const products = await getAllProducts();
   return {
-    props: { products }, // By returning { props: { posts } }, the Home component will receive `products` as a prop at build time
+    props: { products }, // By returning { props }, the Home component will receive `products` as a prop at build time
     revalidate: 4 * 60 * 60 // In seconds
   };
 }
@@ -23,6 +23,12 @@ export default function Home(
           <ProductCard key={product.id} product={product} />
         ))}
       </Grid>
+
+      <Marquee>
+        {products.slice(0, 3).map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </Marquee>
 
       <Hero
         headline="Dessert dragée halvah croissant."

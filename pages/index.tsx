@@ -20,13 +20,13 @@ export default function Home(
     <>
       <Grid>
         {products.slice(0, 3).map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} variant="default" />
         ))}
       </Grid>
 
       <Marquee>
         {products.slice(0, 3).map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} variant="slim" />
         ))}
       </Marquee>
 

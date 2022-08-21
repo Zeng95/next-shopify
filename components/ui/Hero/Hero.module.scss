@@ -1,0 +1,15 @@
+.root {
+  @apply py-16;
+
+  .headline {
+    @apply text-4xl text-white font-extrabold tracking-tight;
+  }
+
+  .description {
+    @apply mt-4 mb-1 text-xl leading-8 text-accent-2;
+  }
+
+  .link {
+    @apply flex pt-3 text-white font-bold hover:underline;
+  }
+}

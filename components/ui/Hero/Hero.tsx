@@ -10,7 +10,7 @@ type Props = {
 function Hero(props: Props) {
   const { headline, description } = props;
   return (
-    <div className="bg-black border-t border-b border-accent-2">
+    <div className="bg-white border-t border-b border-accent-2">
       <Container>
         <div className={styles.root}>
           {/* Headline | 标题 */}

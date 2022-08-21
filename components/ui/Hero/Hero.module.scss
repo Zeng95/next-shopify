@@ -1,15 +1,37 @@
 .root {
-  @apply flex py-16 lg:py-32;
+  @apply flex flex-col py-16;
 
   .headline {
-    @apply text-4xl text-white font-extrabold tracking-tight lg:-mt-3 lg:text-right lg:text-5xl xl:text-6xl;
+    @apply text-4xl text-black font-extrabold tracking-tight leading-none;
   }
 
   .description {
-    @apply mt-4 mb-1 text-xl leading-8 text-accent-2 lg:mt-0 lg:ml-6;
+    @apply mt-4 mb-1 text-xl leading-8 text-accent-2;
   }
 
   .link {
-    @apply flex pt-3 text-white font-bold hover:underline;
+    @apply flex pt-3 text-black font-bold hover:underline;
+  }
+}
+
+@screen lg {
+  .root {
+    @apply flex-row py-32;
+
+    .headline {
+      @apply -mt-3 text-5xl text-right leading-14;
+    }
+
+    .description {
+      @apply mt-0 ml-6;
+    }
+  }
+}
+
+@screen xl {
+  .root {
+    .headline {
+      @apply text-6xl;
+    }
   }
 }
